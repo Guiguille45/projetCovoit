@@ -1,0 +1,20 @@
+<div class="body">
+	<h2 class="titre">Effectuez votre recherche</h2>
+
+	<div *ngIf="error" class="alert alert-danger">Veuillez remplir tous les champs !</div>
+
+	<form (ngSubmit)="onSubmit()" #researchForm="ngForm">
+		<div class="form-group">
+			<input type="text" class="form-control" id="villeDep" placeholder="Ville de départ" [(ngModel)]="recherche.VilleDep" name="villeDep" required />
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="villeFin" placeholder="Ville d'arrivé" [(ngModel)]="recherche.VilleFin" name="villeFin" required />
+		</div>
+		<div class="form-group">
+			<input type="date" class="form-control" id="dateDep" [(ngModel)]="recherche.DateDep" name="dateDep" required />
+		</div>
+		<div class="form-group">
+			<button type="submit" class="form-control btn btn-success">Rechercher</button>
+		</div>
+	</form>
+</div>

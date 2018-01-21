@@ -1,0 +1,31 @@
+<div class="body">
+	<h2 class="titre">Trajets disponibles</h2>
+	<div *ngIf="noData">Il n'y a pas de trajets prévu entre {{ trajet.VilleDep }} et {{ trajet.VilleFin }} après le {{ trajet.DateDep }}.</div>
+	<div class="container" *ngIf="!noData">
+		<div>Entre {{ trajet.VilleDep }} et {{ trajet.VilleFin }} après le {{ trajet.DateDep }}.</div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Départ</th>
+					<th>Arrivé</th>
+					<th>Date</th>
+					<th>Distance</th>
+					<th>Prix</th>
+					<th>Place</th>
+					<th>Conducteur</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let trajet of listeTrajets" class="pointer" [routerLink]='["/Trajets/Info/", trajet._id]'>
+					<td>{{ trajet.VilleDep }}</td>
+					<td>{{ trajet.VilleFin }}</td>
+					<td>{{ trajet.DateDep }}</td>
+					<td>{{ trajet.Distance }}</td>
+					<td>{{ trajet.Prix }}</td>
+					<td>{{ trajet.NbPlace }}</td>
+					<td>{{ trajet.NomConducteur[0].Prenom }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

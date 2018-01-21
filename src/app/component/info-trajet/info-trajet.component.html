@@ -1,0 +1,54 @@
+<div class="body" *ngFor="let trajet of leTrajet">
+	<h2 class="titre">Information sur le trajet <div (click)="goBack()" class="right btn btn-outline-info">Retour à la recherche</div></h2>
+
+	<div class="container">
+		<table class="table table-striped table-hover">
+			<tbody>
+				<tr>
+					<th>Infos trajet</th>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Ville de départ</td>
+					<td>{{ trajet.VilleDep }}</td>
+				</tr>
+				<tr>
+					<td>Ville d'arrivé</td>
+					<td>{{ trajet.VilleFin }}</td>
+				</tr>
+				<tr>
+					<td>Date du départ</td>
+					<td>{{ trajet.DateDep }}</td>
+				</tr>
+				<tr>
+					<td>Distance du trajet</td>
+					<td>{{ trajet.Distance }} km</td>
+				</tr>
+				<tr>
+					<td>Prix du trajet</td>
+					<td>{{ trajet.Prix }} €</td>
+				</tr>
+				<tr>
+					<td>Nombre de place disponible</td>
+					<td>{{ trajet.NbPlace }}</td>
+				</tr>
+				<tr>
+					<th>Infos conducteurs</th>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Conducteur</td>
+					<td>{{ trajet.NomConducteur[0].Prenom }} {{ trajet.NomConducteur[0].Nom }} ({{ trajet.NomConducteur[0].Age }} ans)</td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td>{{ trajet.NomConducteur[0].Email }}</td>
+				</tr>
+				<tr>
+					<td>Téléphone</td>
+					<td>{{ trajet.NomConducteur[0].Telephone }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

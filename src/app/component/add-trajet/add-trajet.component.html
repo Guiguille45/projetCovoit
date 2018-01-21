@@ -1,0 +1,43 @@
+<div class="body">
+	<h2 class="titre">Proposer un nouveau trajet</h2>
+
+	<div *ngIf="error" class="alert alert-danger">Un soucis à eu lieu, nous en sommes désolé. Veuillez réessayer. (tous les champs doivent être correctement complétés)</div>
+
+	<form (submit)="onSubmit()" #addTrajetForm="ngForm">
+		<div class="form-group row">
+			<label for="villeDep" class="col-2 col-form-label">Ville de départ</label>
+			<div class="col-10">
+				<select [(ngModel)]="nouveau.VilleDep" (change)="selectNewVilleDep()" name="villeDep" class="form-control">
+					<option>Choisissez une ville...</option>
+					<option *ngFor="let ville of listeVilleDep">{{ ville.VilleDep }}</option>
+				</select>
+				<!-- <input type="text" class="form-control" id="villeDep" placeholder="Ville de départ" [(ngModel)]="nouveau.VilleDep" name="villeDep" required /> -->
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="villeFin" class="col-2 col-form-label">Ville d'arrivé</label>
+			<div class="col-10">
+				<select [(ngModel)]="nouveau.VilleFin" (change)="selectNewVilleFin()" name="villeFin" class="form-control">
+					<option>{{ messageVilleFin }}</option>
+					<option *ngFor="let ville of listeVilleFin">{{ ville.VilleFin }}</option>
+				</select>
+				<!-- <input type="text" class="form-control" id="villeFin" placeholder="Ville d'arrivé" [(ngModel)]="nouveau.VilleFin" name="villeFin" required /> -->
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="dateDep" class="col-2 col-form-label">Date du départ</label>
+			<div class="col-10">
+				<input type="date" class="form-control" id="dateDep" [(ngModel)]="nouveau.DateDep" name="dateDep" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="nbPlace" class="col-2 col-form-label">Nombre de place</label>
+			<div class="col-10">
+				<input type="number" class="form-control" id="nbPlace" [(ngModel)]="nouveau.NbPlace" name="nbPlace" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="right btn btn-success">Enregistrer</button>
+		</div>
+	</form>
+</div>

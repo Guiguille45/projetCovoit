@@ -1,0 +1,26 @@
+<div class="body">
+	<div *ngIf="error == 'Invalid'" class="alert alert-danger">Login et/ou mot de passe est erroné !</div>
+	<div *ngIf="error == 'NonConnecte'" class="alert alert-danger">Vous devez vous connecter pour acceder à cette zone ! <span class="right pointer" (click)="goBack()"><= Retourner en arrière</span></div>
+	<div *ngIf="error == 'Permission'" class="alert alert-danger">Vous n'avez pas les droits nécessaires pour accéder à cette zone ! Vous avez été déconnecté(e).</div>
+	<div *ngIf="error == 'Bloque'" class="alert alert-danger">Votre compte est actuellement bloqué. Veuillez contacter un administrateur.</div>
+	<div *ngIf="error == 'InscriptionOk'" class="alert alert-success">Votre inscription à bien été prise en compte. Veuillez vous connecter.</div>
+
+	<div *ngIf="!auth.getUserLoggedIn()">
+		<form (ngSubmit)="onSubmit($event)" #authForm="ngForm">
+			<div class="form-group">
+				<input type="text" class="form-control" id="login" placeholder="Login (email)" name="login" required />
+			</div>
+			<div class="form-group">
+				<input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password" required />
+			</div>
+			<div class="form-group">
+				<button type="submit" class="right btn btn-success">Se connecter</button>
+			</div>
+		</form>
+	</div>
+
+	<div *ngIf="auth.getUserLoggedIn()">
+		Vous êtes déjà connecté, vous ne devriez pas être sur cette page...
+	</div>
+</div>
+

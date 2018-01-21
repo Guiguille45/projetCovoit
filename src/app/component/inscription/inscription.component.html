@@ -1,0 +1,48 @@
+<div class="body">
+	<h2 class="titre">Créer un nouveau compte</h2>
+
+	<div *ngIf="error == 'Invalid'" class="alert alert-danger">Veuillez remplir tous les champs pour votre inscription.</div>
+	<div *ngIf="error == 'Utilise'" class="alert alert-danger">Cette adresse e-mail est déjà utilisée !</div>
+
+	<form (submit)="onSubmit()" #newForm="ngForm" class="container">
+		<div class="form-group row">
+			<label for="email" class="col-2 col-form-label">Email (votre login)</label>
+			<div class="col-10">
+				<input type="email" class="form-control" id="email" placeholder="votre.adresse@mail.com" [(ngModel)]="nouveau.Email" name="email" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="pwd" class="col-2 col-form-label">Mot de passe</label>
+			<div class="col-10">
+				<input type="password" class="form-control" id="pwd" placeholder="MotDePasse" [(ngModel)]="nouveau.Password" name="pwd" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="nom" class="col-2 col-form-label">Nom</label>
+			<div class="col-10">
+				<input type="text" class="form-control" id="nom" placeholder="Dupont" [(ngModel)]="nouveau.Nom" name="nom" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="prenom" class="col-2 col-form-label">Prénom</label>
+			<div class="col-10">
+				<input type="text" class="form-control" id="prenom" placeholder="Jean" [(ngModel)]="nouveau.Prenom" name="prenom" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="age" class="col-2 col-form-label">Age</label>
+			<div class="col-10">
+				<input type="number" class="form-control" id="age" placeholder="18" [(ngModel)]="nouveau.Age" name="age" required />
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="tel" class="col-2 col-form-label">Téléphone</label>
+			<div class="col-10">
+				<input type="tel" class="form-control" id="tel" placeholder="0605040302" [(ngModel)]="nouveau.Telephone" name="tel" required />
+			</div>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="right btn btn-success">S'enregistrer</button>
+		</div>
+	</form>
+</div>

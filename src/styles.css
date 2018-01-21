@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+	width: 90%;
+	margin: auto;
+	/*padding: 10px;*/
+	/*border: 1px solid black;*/
+	/*border-radius: 10px;*/
+	height: 100%;
+}
+
+.menuPrincipal {
+	padding: 15px;
+	background-color: #dff2f5;
+	border-radius: 0px 0px 15px 15px;
+}
+
+.menuAdmin {
+	margin-top: 10px;
+	padding: 15px;
+	background-color: #ffedcc;
+	border-radius: 15px 15px 15px 15px;
+}
+
+.body {
+	padding-top: 20px;
+}
+
+.right {
+	float: right;
+}
+
+.form-add-travel {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 10px;
+	margin-bottom: 75px;
+}
+
+.titre {
+	margin-bottom: 30px;
+}
+
+.centre {
+	margin: auto;
+}
+
+.pointer {
+	cursor: pointer;
+}

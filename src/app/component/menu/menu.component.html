@@ -1,0 +1,9 @@
+<nav class="menuPrincipal">
+	<a routerLink="/" class="btn btn-primary">Accueil</a>
+	<a routerLink="/Trajets/Add" class="btn btn-success" *ngIf="auth.getUserLoggedIn()">Proposer un trajet</a>
+	<a routerLink="/Profil" class="btn btn-success" *ngIf="auth.getUserLoggedIn()">Mon profil</a>
+
+	<a routerLink="/Admin" class="btn btn-danger" *ngIf="auth.getUserLoggedIn() && auth.estAdmin()">Admin</a>
+	<div class="right" *ngIf="!auth.getUserLoggedIn()"><a routerLink="/Inscription/New" class="btn btn-warning">Inscription</a> <a routerLink="/Connexion/Connect" class="btn btn-warning">Connexion</a></div>
+	<div class="right" *ngIf="auth.getUserLoggedIn()"><span class="btn btn-link disabled">{{ auth.getUserPrenom() }}</span> <span class="btn btn-warning" (click)="logOut()">Deconnexion</span></div>
+</nav>
